@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-           docker build -t gcr.io/${{ secrets.PROJECT_ID }}/${{ github.repository | lower}}:${{ github.sha }} .
+           docker build -t gcr.io/${{ secrets.PROJECT_ID }}/${{ github.repository }}:${{ github.sha }} .
 
       - name: Push Docker image to Container Registry
         run: |
