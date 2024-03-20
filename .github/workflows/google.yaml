@@ -12,15 +12,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Authenticate to Google Cloud SDK
+      - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2.1.2
         with:
           credentials: ${{ secrets.GCLOUD_AUTH }}
 
-      - name: Set up Google Cloud SDK
+      - name: Set up Google Cloud SDK (without service_account_key)
         uses: google-github-actions/setup-gcloud@v2.1.0
-        with:
-          project_id: ${{ secrets.PROJECT_ID }}
 
       
 
