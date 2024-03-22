@@ -20,9 +20,14 @@ label_mapping = {
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
     storage_client = storage.Client()
-    bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(source_blob_name)
-    blob.download_to_filename(destination_file_name)
+    try:
+        storage_client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(source_blob_name)
+        blob.download_to_filename(destination_file_name)
+        print(f"Blob {source_blob_name} downloaded to {destination_file_name} successfully.")
+    except Exception as e:
+        print(f"Error downloading blob {source_blob_name}: {e}")
 
 download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
 model = load_model('/tmpml/EmpowerMe_emotion_model.h5')
