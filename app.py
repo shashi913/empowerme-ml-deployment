@@ -24,10 +24,10 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
     blob = bucket.blob(source_blob_name)
     blob.download_to_filename(destination_file_name)
 
-download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmp/EmpowerMe_emotion_model.h5')
-model = load_model('/tmp/EmpowerMe_emotion_model.h5')
+download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
+model = load_model('/tmpml/EmpowerMe_emotion_model.h5')
 
-#model = load_model('E:\IIT\Level_5_year_2\ML_model/EmpowerMe_emotion_model.h5', compile=False)
+#model = load_model('E:/IIT/Level_5_year_2/new github commit 21-03-2024/github_latest_22_3_2024/empowerme-ml-deployment/EmpowerMe_emotion_model.h5', compile=False)
 
 # Load the model
 #model = load_model('/content/drive/MyDrive/EmpowerMe_emotion_model.h5')
@@ -65,13 +65,23 @@ def predict():
     class_id = int(np.argmax(prediction))
 
     # Get the emotion label corresponding to the class ID
-    emotion_label = label_mapping.get(class_id, 'Unknown')
+    #emotion_label = label_mapping.get(class_id, 'Unknown')
 
     # Return the predicted emotion label
-    return emotion_label
+    #return emotion_label
+
+    # Print the predicted class ID in the console
+    print("Predicted class ID:", class_id)
+    
+    return str(class_id)
 
     # Send back the result as json
     #return {"class_id": int(np.argmax(prediction))}
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to empowerme emotion recognition model!"
+
+
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='192.168.8.100', port=5000, debug=False)
