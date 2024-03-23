@@ -5,50 +5,21 @@ from tensorflow.keras.models import load_model
 import librosa
 
 app = Flask(__name__)
-
-# Mapping between class IDs and emotion labels
-label_mapping = {
-    0: 'Angry',
-    1: 'Disgusted',
-    2: 'Fearful',
-    3: 'Happy',
-    4: 'Neutral',
-    5: 'Sad',
-    6: 'Surprised'
-}
-
-def load_model_from_gcs(bucket_name, source_blob_name):
-    """Loads a model from Google Cloud Storage."""
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+    """Downloads a blob from the bucket."""
     storage_client = storage.Client()
     try:
         storage_client = storage.Client()
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(source_blob_name)
-        model_file = blob.download_as_string()
-        model = load_model(model_file)
-        return model
+        blob.download_to_filename(destination_file_name)
+        print(f"Blob {source_blob_name} downloaded to {destination_file_name} successfully.")
     except Exception as e:
-        print("Error loading model from dcs")
+        print(f"Error downloading blob {source_blob_name}: {e}")
 
-#download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
-model = load_model_from_gcs('emotion_ml_model', 'EmpowerMe_emotion_model.h5')
+download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
+model = load_model('/tmpml/EmpowerMe_emotion_model.h5')
 
-#model = load_model('E:/IIT/Level_5_year_2/new github commit 21-03-2024/github_latest_22_3_2024/empowerme-ml-deployment/EmpowerMe_emotion_model.h5', compile=False)
-
-# Load the model
-#model = load_model('/content/drive/MyDrive/EmpowerMe_emotion_model.h5')
-''' # Get the JSON object from the request
-data = json.loads(request.data)
-
-# Get the base64 string from the JSON object
-base64_str = data['audio']
-
-# Decode the base64 string into bytes
-bytes = base64.b64decode(base64_str)
-
-# Write the bytes to a .wav file
-with open('temp.wav', 'wb') as f:
-    f.write(bytes)'''
 @app.route('/predict', methods=['POST'])
 def predict():
 
