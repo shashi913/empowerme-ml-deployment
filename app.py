@@ -7,7 +7,7 @@ import librosa
 
 app = Flask(__name__)
 
-storage_client = storage.Client.from_service_account_json('sdgp-cs-39-empowerme-78462fec803a.json')
+storage_client = storage.Client.from_service_account_json('sdgp-cs-39-empowerme-4f7091c30cea.json')
 
 '''
 def download_blob(bucket_name, source_blob_name, destination_file_name):
