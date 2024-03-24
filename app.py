@@ -7,6 +7,8 @@ import librosa
 
 app = Flask(__name__)
 
+storage_client = storage.Client.from_service_account_json('sdgp-cs-39-empowerme-78462fec803a.json')
+
 '''
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
@@ -47,7 +49,7 @@ if model_bytes:
     print("Model loaded successfully!")
 else:
     print("Error: Model download failed.")
-    
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
