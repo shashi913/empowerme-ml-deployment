@@ -18,7 +18,7 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         print(f"Error downloading blob {source_blob_name}: {e}")
 
 download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
-model = load_model('tmpml/EmpowerMe_emotion_model.h5')
+model = load_model('/tmpml/EmpowerMe_emotion_model.h5')
 
 
 @app.route('/predict', methods=['POST'])
