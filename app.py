@@ -1,10 +1,13 @@
 from flask import Flask, request
 from google.cloud import storage
 import numpy as np
+import io
 from tensorflow.keras.models import load_model
 import librosa
 
 app = Flask(__name__)
+
+'''
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
     storage_client = storage.Client()
@@ -16,10 +19,35 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         print(f"Blob {source_blob_name} downloaded to {destination_file_name} successfully.")
     except Exception as e:
         print(f"Error downloading blob {source_blob_name}: {e}")
+'''
 
-download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
-model = load_model('/tmpml/EmpowerMe_emotion_model.h5')
+#download_blob('emotion_ml_model', 'EmpowerMe_emotion_model.h5', '/tmpml/EmpowerMe_emotion_model.h5')
+#model = load_model('/tmpml/EmpowerMe_emotion_model.h5')
 
+def download_model_from_gcs(bucket_name, source_blob_name):
+    """Downloads a model from Google Cloud Storage."""
+    try:
+        storage_client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(source_blob_name)
+        model_bytes = blob.download_as_string()
+        return model_bytes
+    except Exception as e:
+        print(f"Error downloading model from GCS: {e}")
+        return None
+
+# Usage
+bucket_name = "emotion_ml_model"
+source_blob_name = "EmpowerMe_emotion_model.h5"
+model_bytes = download_model_from_gcs(bucket_name, source_blob_name)
+
+# Now you can load the model directly from memory
+if model_bytes:
+    model = load_model(io.BytesIO(model_bytes))
+    print("Model loaded successfully!")
+else:
+    print("Error: Model download failed.")
+    
 
 @app.route('/predict', methods=['POST'])
 def predict():

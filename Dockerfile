@@ -9,5 +9,6 @@ RUN apt-get update && apt-get install -y curl \
     && apt-get remove -y curl \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
+
 EXPOSE 8080
 CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
