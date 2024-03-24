@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sdgp-cs-39-empowerme",
+  "private_key_id": "78462fec803a7557f1328e3062495b8b56c30805",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCSMTOb2cgIUMsa\nW4TAspIGG2qabDe2XomKzwYJuO5JfLCi5ufyI8lakoT9oQvL/l2Lv+frafmbnXt0\nLQQ+3q8D1B1UdwA3bCMLVGkxX78zAxTO3/7yrQaCm+TxNXVhvEtI3BGFw3fQ1J3t\ngjz2ypSmFvaHjtzAz8i+vp+CBGbi+rXc0OFwcGBeNitFgsg+D6A7s8rSkYhik24j\nawInmNomm58dxZt+GWfploFzfveCeKxeHvyoLGZvVDnp85b1W8eUNaQ7n+faR78J\nvKC2IwnNM31PyajUFG02xXPLQMfKLAadqS8c49U3y9g0HdLYTcxe+gqjMBn3UUND\nO8q4uDTtAgMBAAECggEAIXs+QB/pFap3UaKLLVzYX6iwygwl2FEffBh84AYoINF7\nXNu4XHcAuwsahUH4gzBO+V4qvfpH7fFr4EgdFE8I0z4lt34HoSnVftdGvkWY8xRu\nFBEuASNKfeg5T1r4drlanqW0J6gETWIch1RQJQ9xavaQYKyB93C/H5xlyK+8Zpg/\nAGhVGDxip0xQUb11tGVdznv7St/lsPDRrxyCbOuGeMPciRTQPCfTn1rFb8vBUnQ8\no5Gf9hcfmHm7yJ7DwbQ+aFSQjlbGpSlBvloavjaWF/VsxGax6YfM3v8pIJZ5O8Yd\nOgFefOIMB0dchZel1XK/XBFzeHvk0idEwS9YINCUWwKBgQDNT11gS/Ha357eBWJY\nIvAOOrJsM1nXK8FM1ZohnbSoEyctVmT0+hqv7VDEdYXBbnnwvdKE+iAVyXYUiWKL\nDcn/I3DpP+jEEUsLhhiO5TJMwnrxCwqV7XZ+8hch8QoCUe55L/xPJbsO1Y0AJgHH\nVpIaAmpRU/0rL0mkLQ6QIsjgmwKBgQC2SUpOVPwA2z9gdFjVhcfs4U+F/UTVKYIv\n56xvxmXdWsStuy04vG6KbRcaQJ2yLEpFkZvuJXAN92FyN2SVfqipWK1zemrxZzUf\np7MYHObOg8zXLk0vvQxTlWWzyG52OVLulcn/dG8bNs5a/Dk8wQJR3wQ0y4Eg8R2m\nkQC3WusFFwKBgHaCGi8Mh0VEkQos53Biclh0TysflPsbuY8lOLuwsWfW7mVAGjRB\n7YehH17XS2a041Qv7cVuL3kD+dGu35/OTMul5HXuuuf552x2cdSBvcAK/jYGnoye\nLijmiq2/2XwvWMzBAw2YhNnyMFpmld4/PUQgIshhB6CWwhYvH9nZCkSDAoGATRh2\nSub6pkoUZfEPWU95nSA2CA90O0uQ+j3b2nJoxtQK9weBOsvHXNiCuuG1UJQW3ZGW\nB4Th/aYxGqN+8RNetjEBOyP9cxgZicfdoUcn/xQTYLb+gkBMpFU9bGpK/cmE38+O\nXXKbQ0FMyYJ/mshu+L2AA+xGMu6Hgdk2GlZjrAUCgYEAy5VHtiCz4cS8Nzn6mlDT\nULhXiSATGbr3mH+KwELaGv8D/OadSvnm30mhW+18TwLvsk5695So8Kg2HqCOojYh\nTC0Az6e6TRHumEpSG7ZV8pmpjWLcbA0H8vFQxNxqEitPEziYC21ukabv8eClHbWu\nvKYjR0YtYBd9nWRL5LfY1fk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "srupasinghe913@sdgp-cs-39-empowerme.iam.gserviceaccount.com",
+  "client_id": "118319892962630963270",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/srupasinghe913%40sdgp-cs-39-empowerme.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
