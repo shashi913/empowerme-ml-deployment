@@ -56,11 +56,13 @@ def predict():
 
     # Get audio file and save it
     audio_file = request.files["file"]
-    file_name = "temp.wav"
-    audio_file.save(file_name)
+    #file_name = "temp.wav"
+    #audio_file.save(file_name)
+    audio_data = audio_file.read()  # Read audio data directly into memory
 
     # Load audio file and convert it into Mel spectrogram
-    audio, _ = librosa.load(file_name, sr=None)
+    #audio, _ = librosa.load(file_name, sr=None)
+    audio, _ = librosa.load(io.BytesIO(audio_data), sr=None)
     mel_spec = librosa.feature.melspectrogram(y=audio, sr=_, n_mels=64)
     mel_spec_db = librosa.power_to_db(mel_spec, ref=np.max)
     mel_spec_db_fixed = librosa.util.fix_length(mel_spec_db, size=960)
