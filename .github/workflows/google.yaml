@@ -37,4 +37,5 @@ jobs:
 
       - name: Deploy to Cloud Run
         run: |
+          gcloud builds submit --tag gcr.io/${{ secrets.PROJECT_ID }}/${{ github.repository }}:${{ github.sha }} --gcs-log-dir=gs://my-logs-bucket
           gcloud run deploy --image=gcr.io/${{ secrets.PROJECT_ID }}/${{ github.repository }}:${{ github.sha }} --platform=managed --region=${{ secrets.CLOUD_RUN_REGION }} --allow-unauthenticated --quiet
